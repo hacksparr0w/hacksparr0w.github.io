@@ -20,12 +20,6 @@ import { HtmlTemplate } from "../partial";
 import { anchorStyles } from "../styles";
 import theme from "../theme";
 
-export const template = HtmlTemplate;
-
-export const metadata = {
-  title: "/home/hacksparr0w"
-};
-
 const IndexBlogPostList = styled(BlogPostList)({
   marginTop: "40px"
 });
@@ -55,6 +49,12 @@ const Main = styled.main({
   paddingBottom: "80px",
   paddingTop: "80px"
 });
+
+export const template = HtmlTemplate;
+
+export const metadata = {
+  title: "/home/hacksparr0w"
+};
 
 export default ({ metadata: { pages } }) => {
   const posts = pages.filter(

@@ -6,8 +6,16 @@ import theme from "../theme";
 const Root = styled.div({
   display: "flex",
 
+  "@media (max-width: 768px)": {
+    flexDirection: "column"
+  },
+
   "& > div:first-of-type": {
     width: "25%",
+
+    "@media (max-width: 768px)": {
+      width: "100%"
+    },
 
     "& > p": {
       ...theme.typography.h3
@@ -16,6 +24,10 @@ const Root = styled.div({
 
   "& > div:last-of-type": {
     width: "75%",
+
+    "@media (max-width: 768px)": {
+      width: "100%"
+    },
 
     "& > h3 > a": {
       border: "none",

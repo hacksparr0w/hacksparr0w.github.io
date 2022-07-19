@@ -5,7 +5,14 @@ import { scrollImage } from "../asset/image";
 
 const Root = styled.header({
   height: "100vh",
-  backgroundColor: "black"
+  backgroundColor: "black",
+
+  "@media (max-width: 490px), (max-height: 920px)": {
+    height: "100%",
+
+    paddingBottom: "80px",
+    paddingTop: "80px"
+  }
 });
 
 const ContentArea = styled.div({
@@ -23,7 +30,11 @@ const ScrollArea = styled.div({
 
   display: "flex",
   justifyContent: "center",
-  paddingBottom: "10px"
+  paddingBottom: "10px",
+
+  "@media (max-width: 490px), (max-height: 920px)": {
+    display: "none"
+  }
 });
 
 const ScrollIndicator = styled.a(

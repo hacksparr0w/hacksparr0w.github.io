@@ -1,2 +1,3 @@
 # hacksparr0w.github.io
-Source code of my thoughts
+
+This is a repository hosting source code of my thoughts.

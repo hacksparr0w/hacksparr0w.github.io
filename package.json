@@ -1,0 +1,32 @@
+{
+  "name": "hacksparr0w.github.io",
+  "version": "0.0.1",
+  "description": "The source code of my thoughts",
+  "scripts": {
+    "dev": "mesmer serve",
+    "build": "mesmer build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hacksparr0w/hacksparr0w.github.io.git"
+  },
+  "keywords": [
+    "source",
+    "code",
+    "thoughts",
+    "blog"
+  ],
+  "author": "hacksparr0w",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hacksparr0w/hacksparr0w.github.io/issues"
+  },
+  "homepage": "https://github.com/hacksparr0w/hacksparr0w.github.io#readme",
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "mesmer": "0.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

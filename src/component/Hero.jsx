@@ -2,10 +2,12 @@ import styled from "@emotion/styled";
 import React, { useEffect, useRef, useState } from "react";
 
 import { scrollImage } from "../asset/image";
+import theme from "../theme";
 
 const Root = styled.header({
   height: "100vh",
-  backgroundColor: "black",
+  backgroundColor: theme.color.background.accent,
+  color: theme.color.text.accent,
 
   "@media (max-width: 490px), (max-height: 920px)": {
     height: "100%",

@@ -1,8 +1,14 @@
 import { Global } from "@emotion/react";
 import React from "react";
 
-import { globalStyles } from "../styles";
 import { alienInvaderIcon } from "../asset/tweemoji";
+
+const globalStyles = {
+  "*": {
+    margin: 0,
+    padding: 0
+  }
+};
 
 export const containerSelector = "#app";
 
@@ -30,7 +36,7 @@ export default ({ metadata, children }) => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono&display=swap"
           rel="stylesheet"
         />
         <title>{title}</title>

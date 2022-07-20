@@ -1,40 +1,27 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import { anchorStyles } from "../styles";
 import theme from "../theme";
 import Link from "./Link";
+import Typography from "./Typography";
 
 const Root = styled.footer({
   textAlign: "center",
   padding: "80px",
-  backgroundColor: theme.color.background.secondary,
-
-  "& > p": {
-    ...theme.typography.p.secondary,
-    color: theme.color.text.secondary,
-
-    "&:not(:first-of-type)": {
-      marginTop: "10px"
-    }
-  },
-
-  "& > p > a": {
-    ...anchorStyles("secondary")
-  }
+  backgroundColor: theme.color.background.accent,
+  color: theme.color.text.accent
 });
 
 export default () => (
   <Root>
-    <p>
+    <Typography variant="body2">
       Created with &lt;3, powered by{" "}
       <Link to="https://github.com/hacksparr0w/mesmer">
         Mesmer
       </Link>
       .
-    </p>
-    <p>
+      <br />
       hacksparr0w © 2022
-    </p>
+    </Typography>
   </Root>
 );

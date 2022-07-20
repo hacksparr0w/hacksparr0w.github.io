@@ -1,4 +1,3 @@
-const GIT_HUB_API_URL = "https://api.github.com";
 const GIT_HUB_URL = "https://github.com";
 const INSTAGRAM_URL = "https://www.instagram.com";
 const TWITCH_URL = "https://www.twitch.tv";
@@ -10,10 +9,6 @@ export const getEmailUrl = email => (
 
 export const getGitHubProfileUrl = userName => (
   new URL(userName, GIT_HUB_URL).href
-);
-
-export const getGitHubApiProfileUrl = userName => (
-  new URL(`/users/${userName}`, GIT_HUB_API_URL)
 );
 
 export const getInstagramProfileUrl = userName => (

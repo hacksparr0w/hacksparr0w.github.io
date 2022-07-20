@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import theme from "../theme";
+import Link from "./Link";
+import Typography from "./Typography";
 
 const Root = styled.div({
   display: "flex",
@@ -15,10 +16,6 @@ const Root = styled.div({
 
     "@media (max-width: 768px)": {
       width: "100%"
-    },
-
-    "& > p": {
-      ...theme.typography.h3
     }
   },
 
@@ -27,17 +24,6 @@ const Root = styled.div({
 
     "@media (max-width: 768px)": {
       width: "100%"
-    },
-
-    "& > h3 > a": {
-      border: "none",
-      fontWeight: 500
-    },
-
-    "& > p": {
-      ...theme.typography.p.secondary,
-
-      marginTop: "10px"
     }
   }
 });
@@ -53,11 +39,19 @@ export default ({
 }) => (
   <Root {...rest}>
     <div>
-      <p>{publishedAt}</p>
+      <Typography variant="heading3" component="p">
+        {publishedAt}
+      </Typography>
     </div>
     <div>
-      <h3><a href={documentFileUrl}>{title}</a></h3>
-      <p>{subtitle}</p>
+      <Typography variant="heading3">
+        <Link variant="anchor2" to={documentFileUrl}>
+          {title}
+        </Link>
+      </Typography>
+      <Typography variant="body2">
+        {subtitle}
+      </Typography>
     </div>
   </Root>
 );

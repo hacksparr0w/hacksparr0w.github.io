@@ -8,7 +8,7 @@ const ALPHABET = (
   "()_-+={[}]:;\"'|\\<,>.?/"
 );
 
-export default ({ component: Component = "p", children }) => {
+export default ({ component: Component = "p", children, ...other }) => {
   const [text, setText] = useState("");
   const [finished, setFinished] = useState(true);
   const rootRef = useRef();
@@ -59,7 +59,7 @@ export default ({ component: Component = "p", children }) => {
   }, [children]);
 
   return (
-    <Component ref={rootRef}>
+    <Component ref={rootRef} {...other}>
       {finished ? children : text}
     </Component>
   )

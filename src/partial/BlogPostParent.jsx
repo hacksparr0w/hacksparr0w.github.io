@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import React from "react";
 
 import {
@@ -9,7 +10,15 @@ import {
   Typography
 } from "../component";
 
+import theme from "../theme";
+
 import * as HtmlTemplate from "./HtmlTemplate";
+
+const BlogPostContentBox = styled(ContentBox)({
+  "& p": {
+    ...theme.typography.body1
+  }
+});
 
 export const template = HtmlTemplate;
 
@@ -37,9 +46,9 @@ export default ({ metadata, children }) => {
         </ContentBox>
       </Hero>
       <Main>
-        <ContentBox>
+        <BlogPostContentBox>
           {children}
-        </ContentBox>
+        </BlogPostContentBox>
       </Main>
       <Footer />
     </>

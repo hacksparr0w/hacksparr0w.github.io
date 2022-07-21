@@ -70,7 +70,7 @@ export default ({ metadata: { pages } }) => {
           </GitsTextEffect>
           <GitsTextEffect component={Typography} variant="body2">
             I'm interested in solving intelligence and my
-            open-source work revolves around AI. I'd like to invest
+            open-source work revolves primarily around AI. I'd like to invest
             in your next gamedev project, because I believe games are the
             most important medium of our time.
           </GitsTextEffect>

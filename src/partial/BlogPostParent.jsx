@@ -1,19 +1,39 @@
 import React from "react";
 
-import { ContentBox, Footer, Hero, Main, Typography } from "../component";
+import {
+  ContentBox,
+  Footer,
+  Hero,
+  HomeNavigationItem,
+  Main,
+  Typography
+} from "../component";
+
 import * as HtmlTemplate from "./HtmlTemplate";
 
 export const template = HtmlTemplate;
 
 export default ({ metadata, children }) => {
-  const { page: { title, subtitle } } = metadata;
+  const { page: { title, subtitle, publishedOn }, pages } = metadata;
+  const [{ documentFileUrl: homeUrl }] = pages.filter(({ home }) => home);
 
   return (
     <>
-      <Hero>
+      <Hero
+        navigation={(
+          <HomeNavigationItem homeUrl={homeUrl} />
+        )}
+      >
         <ContentBox>
-          <Typography variant="heading1">{title}</Typography>
-          <Typography variant="subtitle" color="secondary">{subtitle}</Typography>
+        <Typography variant="subtitle2">
+            {publishedOn}
+          </Typography>
+          <Typography variant="heading1">
+            {title}
+          </Typography>
+          <Typography variant="subtitle1" color="secondary">
+            {subtitle}
+          </Typography>
         </ContentBox>
       </Hero>
       <Main>

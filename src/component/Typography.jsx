@@ -10,7 +10,8 @@ const COMPONENTS = {
   heading1: "h1",
   heading2: "h2",
   heading3: "h3",
-  subtitle: "p"
+  subtitle1: "p",
+  subtitle2: "p"
 };
 
 const getTextColor = color => (

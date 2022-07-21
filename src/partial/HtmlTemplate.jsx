@@ -36,7 +36,7 @@ export default ({ metadata, children }) => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&family=Roboto+Mono&display=swap"
           rel="stylesheet"
         />
         <title>{title}</title>

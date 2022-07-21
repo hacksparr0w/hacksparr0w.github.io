@@ -24,6 +24,15 @@ const ContentArea = styled.div({
   alignItems: "center"
 });
 
+const NavigationArea = styled.nav({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+
+  padding: 20
+});
+
 const ScrollArea = styled.div({
   position: "absolute",
   bottom: 0,
@@ -53,9 +62,18 @@ const ScrollIndicator = styled.a(
   })
 );
 
-export default ({ children, ...props }) => {
+export default ({ children, navigation, ...props }) => {
   const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(true);
   const scrollIndicator = useRef();
+  let navigationArea = null;
+
+  if (navigation) {
+    navigationArea = (
+      <NavigationArea>
+        {navigation}
+      </NavigationArea>
+    );
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -89,6 +107,7 @@ export default ({ children, ...props }) => {
 
   return (
     <Root {...props}>
+      {navigationArea}
       <ContentArea>
         {children}
       </ContentArea>

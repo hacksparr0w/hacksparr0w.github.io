@@ -32,7 +32,7 @@ export default ({
   post: {
     title,
     subtitle,
-    publishedAt,
+    publishedOn,
     documentFileUrl
   },
   ...rest
@@ -40,7 +40,7 @@ export default ({
   <Root {...rest}>
     <div>
       <Typography variant="heading3" component="p">
-        {publishedAt}
+        {publishedOn}
       </Typography>
     </div>
     <div>

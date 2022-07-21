@@ -19,7 +19,12 @@ export default {
     },
 
     anchor2: {
-      fontWeight: 600,
+      fontWeight: 500,
+      color: "inherit",
+      textDecoration: "none"
+    },
+
+    anchor3: {
       color: "inherit",
       textDecoration: "none"
     },
@@ -62,9 +67,17 @@ export default {
       marginBottom: 10
     },
 
-    subtitle: {
+    subtitle1: {
       fontFamily: "'Roboto Mono', monospace",
       fontSize: 28
+    },
+
+    subtitle2: {
+      fontFamily: "'Poppins', sans-serif",
+      fontWeight: 200,
+      fontSize: 24,
+
+      marginBottom: 10
     }
   }
 };

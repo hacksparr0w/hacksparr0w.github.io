@@ -37,7 +37,8 @@ const IndexContentBox = styled(ContentBox)({
 export const template = HtmlTemplate;
 
 export const metadata = {
-  title: "/home/hacksparr0w"
+  title: "/home/hacksparr0w",
+  home: true
 };
 
 export default ({ metadata: { pages } }) => {

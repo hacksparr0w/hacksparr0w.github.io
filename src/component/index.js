@@ -6,6 +6,7 @@ export { default as Footer } from "./Footer";
 export { default as GitHubProfileLink } from "./GitHubProfileLink";
 export { default as GitsTextEffect } from "./GitsTextEffect";
 export { default as Hero } from "./Hero";
+export { default as HomeNavigationItem } from "./HomeNavigationItem";
 export { default as InstagramProfileLink } from "./InstagramProfileLink";
 export { default as Link } from "./Link";
 export { default as Main } from "./Main";

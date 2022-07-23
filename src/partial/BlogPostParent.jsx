@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-import React from "react";
+//import Katex from "katex";
+import renderMathInElement from "katex/contrib/auto-render";
+import React, { useEffect, useRef } from "react";
 
 import {
   ContentBox,
@@ -15,6 +17,10 @@ import theme from "../theme";
 import * as HtmlTemplate from "./HtmlTemplate";
 
 const BlogPostContentBox = styled(ContentBox)({
+  "& h2": {
+    ...theme.typography.heading2
+  },
+
   "& p": {
     ...theme.typography.body1
   }
@@ -23,8 +29,20 @@ const BlogPostContentBox = styled(ContentBox)({
 export const template = HtmlTemplate;
 
 export default ({ metadata, children }) => {
+  const contentBoxRef = useRef();
   const { page: { title, subtitle, publishedOn }, pages } = metadata;
   const [{ documentFileUrl: homeUrl }] = pages.filter(({ home }) => home);
+
+  useEffect(() => {
+    renderMathInElement(contentBoxRef.current, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+  }, []);
 
   return (
     <>
@@ -46,7 +64,7 @@ export default ({ metadata, children }) => {
         </ContentBox>
       </Hero>
       <Main>
-        <BlogPostContentBox>
+        <BlogPostContentBox ref={contentBoxRef}>
           {children}
         </BlogPostContentBox>
       </Main>

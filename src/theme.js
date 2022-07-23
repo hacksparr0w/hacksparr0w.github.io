@@ -32,7 +32,9 @@ export default {
     body1: {
       fontFamily: "'Poppins', sans-serif",
       fontWeight: 400,
-      fontSize: 17
+      fontSize: 17,
+
+      marginBottom: 20
     },
 
     body2: {

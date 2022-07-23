@@ -17,11 +17,15 @@ import theme from "../theme";
 import * as HtmlTemplate from "./HtmlTemplate";
 
 const BlogPostContentBox = styled(ContentBox)({
-  "& h2": {
+  "& a": {
+    ...theme.typography.anchor1
+  },
+
+  "& > h2": {
     ...theme.typography.heading2
   },
 
-  "& p": {
+  "& > p": {
     ...theme.typography.body1
   }
 });

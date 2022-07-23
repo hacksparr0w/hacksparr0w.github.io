@@ -1,11 +1,13 @@
+import { Figure } from "../../../../../component";
 import { BlogPostParent } from "../../../../../partial";
+import m87blackHoleImage from "./m87-black-hole.jpg";
 
 export const parent = BlogPostParent;
 export const metadata = {
   title: "Analyzing Physical Data with Python",
   subtitle: `
-    Exploring the most useful concepts, techniques and packages
-    for physical data analysis with Python programming language.
+    Exploring the most useful concepts, techniques, and packages for physical
+    data analysis with the Python programming language
   `,
   publishedOn: "July 18, 2022"
 };
@@ -22,21 +24,59 @@ processing methods or spend much more time researching and tinkering with
 various data analysis tools instead of focusing on the problem at hand.
 
 This blog post presents basic building blocks for writing your own data
-analysis pipelines in the Python programming language. It contains a colorful
+analysis scripts in the Python programming language. It contains a colorful
 palette of ready-made code snippets with relevant examples of their physics
 application. We'll cover all the necessary steps of a typical analysis
 procedure, from loading your data into Python's virtual memory, through
 performing statistical regressions, to visualizing your results and outputting
 them into $\LaTeX$ documents.
 
+It will probably take you some time before you come up with your own ideal
+data analysis workflow, but I believe that by sharing some of the things I
+discovered through numerous trials and errors, I can save you some headaches
+and perhaps even make your time analyzing physical data a bit more enjoyable.
+
+Please note that this is not meant to be a an introduction to Python
+programming and I'll be asuming at least a little knowledge of Python's
+syntax on your part. If this is your first encounter with Python, I'd highly
+encourage you to read through the official [Python Documentation][1]. If you
+are new to Python, you may still be able to learn a great deal just by playing
+with the material shown here — Python is an incredibly intuitive programming
+language and is made to be easily readable even for an untrained eye. Just try
+copy-pasting the included examples into a Python REPL, modyfying them to your
+curiosity's accords and see how far it gets you...
+
 ## Why Python?
 
+The main difference between Python and other popular solutions for data
+analysis, like, let's say, [qtiplot][1], is that Python is a proper programming
+language. It is a program for making programs. As such, it is much more
+powerful in its capabilities but also has a much steeper learning curve.
+
+Although Python was originally not designed with scientific applications in
+mind, its user-friendly language design and high-level nature made it very
+appealing for scientists and engineers that aren't necessarily fluent in
+low-level computing details and just want to get stuff done and iterate
+quickly. Over the years Python has become extremely fashionable in the
+scientific community and its vibrant ecosystem of packages for number
+crunching and data visualization make it an excelent choice for data analysis
+of any kind. To mention just one example out of many, the first-ever picture
+of a black hole was [computationaly constructed using Python and Numpy][3].
+
+<Figure
+  image={m87blackHoleImage}
+  caption={`
+    The very first image of a supermassive black hole from the M87 galaxy. The
+    image was computationally constructed using Python and various third-party
+    scientific packages. Credits to the photo belong to the Event Horizon
+    Telescope Collaboration.
+  `}
+/>
+
+## Python development environments
+
 asdf
 
-## Installing Python
-
-asdf
-
-## Python environments
-
-asdf
+[1]: https://docs.python.org/3/
+[2]: https://www.qtiplot.com/
+[3]: https://numpy.org/case-studies/blackhole-image/

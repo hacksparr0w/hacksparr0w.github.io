@@ -2,6 +2,7 @@ export { default as BlogPostList } from "./BlogPostList";
 export { default as BlogPostListItem } from "./BlogPostListItem";
 export { default as ContentBox } from "./ContentBox";
 export { default as EmailLink } from "./EmailLink";
+export { default as Figure } from "./Figure";
 export { default as Footer } from "./Footer";
 export { default as GitHubProfileLink } from "./GitHubProfileLink";
 export { default as GitsTextEffect } from "./GitsTextEffect";

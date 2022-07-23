@@ -29,12 +29,18 @@ export default {
       textDecoration: "none"
     },
 
+    caption: {
+      fontFamily: "'Poppins', sans-serif",
+      fontWeight: 400,
+      fontSize: 14
+    },
+
     body1: {
       fontFamily: "'Poppins', sans-serif",
       fontWeight: 400,
       fontSize: 17,
 
-      marginBottom: 20
+      marginBottom: 30
     },
 
     body2: {

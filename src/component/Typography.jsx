@@ -5,6 +5,7 @@ import { forwardRef } from "react";
 import theme from "../theme";
 
 const COMPONENTS = {
+  caption: "p",
   body1: "p",
   body2: "p",
   heading1: "h1",

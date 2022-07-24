@@ -25,26 +25,26 @@ various data analysis tools instead of focusing on the problem at hand.
 
 This blog post presents basic building blocks for writing your own data
 analysis scripts in the Python programming language. It contains a colorful
-palette of ready-made code snippets with relevant examples of their physics
-application. We'll cover all the necessary steps of a typical analysis
-procedure, from loading your data into Python's virtual memory, through
-performing statistical regressions, to visualizing your results and outputting
-them into $\LaTeX$ documents.
+palette of ready-made code snippets with relevant examples of their
+application in physics. We'll cover all the necessary steps of a typical
+analysis procedure, from loading your data into Python's virtual memory,
+through performing statistical regressions and numeric calculations, to
+visualizing your results and outputting them into $\LaTeX$ documents.
 
 It will probably take you some time before you come up with your own ideal
 data analysis workflow, but I believe that by sharing some of the things I
 discovered through numerous trials and errors, I can save you some headaches
 and perhaps even make your time analyzing physical data a bit more enjoyable.
 
-Please note that this is not meant to be a an introduction to Python
-programming and I'll be asuming at least a little knowledge of Python's
+Please note that this is not meant to be an introduction to Python
+programming and I'll be assuming at least a little knowledge of Python's
 syntax on your part. If this is your first encounter with Python, I'd highly
-encourage you to read through the official [Python Documentation][1]. If you
+encourage you to read through the official [Python documentation][1]. If you
 are new to Python, you may still be able to learn a great deal just by playing
-with the material shown here — Python is an incredibly intuitive programming
-language and is made to be easily readable even for an untrained eye. Just try
-copy-pasting the included examples into a Python REPL, modyfying them to your
-curiosity's accords and see how far it gets you...
+with the material shown here. Python is an incredibly intuitive programming
+language and is made to be easily readable even for an untrained eye. Simply
+copy-paste the included examples into a Python REPL, modify them to your
+curiosity's accords, and see how far you get.
 
 ## Why Python?
 
@@ -55,13 +55,14 @@ powerful in its capabilities but also has a much steeper learning curve.
 
 Although Python was originally not designed with scientific applications in
 mind, its user-friendly language design and high-level nature made it very
-appealing for scientists and engineers that aren't necessarily fluent in
+appealing for scientists and engineers who aren't necessarily fluent in
 low-level computing details and just want to get stuff done and iterate
-quickly. Over the years Python has become extremely fashionable in the
-scientific community and its vibrant ecosystem of packages for number
-crunching and data visualization make it an excelent choice for data analysis
-of any kind. To mention just one example out of many, the first-ever picture
-of a black hole was [computationaly constructed using Python and Numpy][3].
+quickly. Over the years, Python has become extremely fashionable in the
+scientific community, and its vibrant ecosystem of packages for number
+crunching and data visualization makes it an excellent choice for data
+analysis of any kind. To mention just one example out of many, the first-ever
+picture of a black hole was
+[computationally constructed using Python and Numpy][3].
 
 <Figure
   image={m87blackHoleImage}
@@ -75,8 +76,38 @@ of a black hole was [computationaly constructed using Python and Numpy][3].
 
 ## Python development environments
 
-asdf
+Python code is just plain text, so you can use any text editor you like to
+write Python programs. Text editors come with varying degrees of support for
+programming languages. There are lightweight but still very powerful text
+editors like [Sublime Text][4] that offer syntax-highlighting,
+autocompletion, and some useful graphical features, but usually don't go
+beyond that. Then there are so-called integrated development environments
+(IDEs), which come with full support for your language of choice, providing
+features like a built-in debugger, dependency management, test runner, and so on.
+A very popular IDE for Python is [PyCharm][5]. My personal favorite is
+[Visual Studio Code][6], which is a very customizable, language-agnostic IDE.
+
+Another noteworthy development environment for Python is [Jupyter][7]. Jupyter
+is a beast of its own and was purposely built for data visualization and
+presentation. Jupyter comes with a web-based interface that runs your
+Python code and outputs your results with pretty visuals and interactive
+elements. It also lets you annotate your code and your plots with formatted
+text and create beautiful documents. Jupyter notebooks are a perfect way to
+bundle the results of your calculations in a nice interactive wrapping, but I
+find them quite clumsy when it comes to actual coding and prototyping.
+
+One last remark to be made when talking about Python environments: make sure
+you are always using the latest stable version of Python 3, not Python 2.
+Python 2 has been [deprecated since January 1, 2020][8], and things will not
+work properly if you use it.
+
+## Packages for scientific computing
 
 [1]: https://docs.python.org/3/
 [2]: https://www.qtiplot.com/
 [3]: https://numpy.org/case-studies/blackhole-image/
+[4]: https://www.sublimetext.com/
+[5]: https://www.jetbrains.com/pycharm/
+[6]: https://code.visualstudio.com/
+[7]: https://jupyter.org/
+[8]: https://github.com/python/devguide/pull/344

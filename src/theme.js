@@ -13,7 +13,7 @@ export default {
 
   typography: {
     anchor1: {
-      borderBottom: "1px solid",
+      borderBottom: "2px solid",
       color: "inherit",
       textDecoration: "none"
     },
@@ -38,17 +38,23 @@ export default {
     body1: {
       fontFamily: "'Poppins', sans-serif",
       fontWeight: 400,
-      fontSize: 17,
+      fontSize: 18,
+      lineHeight: 1.6,
 
-      marginBottom: 30
+      marginBottom: 28
     },
 
     body2: {
-      fontFamily: "'Roboto Mono', monospace",
+      fontFamily: "'Fira Code', monospace",
       fontWeight: 400,
-      fontSize: 17,
+      fontSize: 18,
+      lineHeight: 1.5,
 
       marginBottom: 20
+    },
+
+    code: {
+      fontFamily: "'Fira Code'"
     },
 
     heading1: {
@@ -58,13 +64,15 @@ export default {
 
       lineHeight: 1.2,
 
-      marginBottom: 30
+      marginBottom: 28
     },
 
     heading2: {
       fontFamily: "'Poppins', sans-serif",
-      fontWeight: 400,
-      fontSize: 34
+      fontWeight: 600,
+      fontSize: 32,
+
+      marginBottom: 12
     },
 
     heading3: {
@@ -76,8 +84,9 @@ export default {
     },
 
     subtitle1: {
-      fontFamily: "'Roboto Mono', monospace",
-      fontSize: 28
+      fontFamily: "'Fira Code', monospace",
+      fontSize: 28,
+      lineHeight: 1.5
     },
 
     subtitle2: {

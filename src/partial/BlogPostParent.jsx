@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-//import Katex from "katex";
 import renderMathInElement from "katex/contrib/auto-render";
+import Prism from "prismjs";
+import "prismjs/components/prism-python";
 import React, { useEffect, useRef } from "react";
 
 import {
@@ -19,6 +20,10 @@ import * as HtmlTemplate from "./HtmlTemplate";
 const BlogPostContentBox = styled(ContentBox)({
   "& a": {
     ...theme.typography.anchor1
+  },
+
+  "& code": {
+    ...theme.typography.code
   },
 
   "& > h2": {
@@ -46,6 +51,8 @@ export default ({ metadata, children }) => {
         { left: "\\[", right: "\\]", display: true }
       ]
     });
+
+    Prism.highlightAllUnder(contentBoxRef.current);
   }, []);
 
   return (

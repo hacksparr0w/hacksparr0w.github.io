@@ -49,7 +49,7 @@ curiosity's accords, and see how far you get.
 ## Why Python?
 
 The main difference between Python and other popular solutions for data
-analysis, like, let's say, [qtiplot][1], is that Python is a proper programming
+analysis, like, let's say, [qtiplot][2], is that Python is a proper programming
 language. It is a program for making programs. As such, it is much more
 powerful in its capabilities but also has a much steeper learning curve.
 
@@ -103,6 +103,98 @@ work properly if you use it.
 
 ## Packages for scientific computing
 
+ - numpy and pandas
+ - uncertainties and pint
+ - scipy
+ - sympy
+ - plotly and kaleido
+
+## Loading data and performing basic math
+
+Now that we've handled all the necessary formalities, let's start with some
+actual physics. We'll start slow and simple to demonstrate some basics, and
+we'll gradually move on to more complex exercises.
+
+Let's start with geometry. Suppose we have a cuboid of unknown dimensions $a$,
+$b$, and $c$. We would like to measure these dimensions and then calculate the
+volume $V$ of this cuboid. The volume $V$ can be calculated as
+
+$$
+  V = a \cdot b \cdot c.
+$$
+
+Simple enough, right? The next step is to take some measurements with a
+standard metric ruler.
+
+The proper way to take measurements and evaluate uncertainties with a standard
+metric ruler would be the [Type A evaluation of standard uncertainty][9].
+According to this standard, we need to take a sample of $N$ independent
+measurements. After that, we can estimate the true value of the measured
+variable as the [sample mean][10] and the standard uncertainty as the
+[standard deviation of the mean][11] (sometimes referred to as standard
+error). Given $N$ observations $x_i$, the sample mean $\bar x$ can be
+calculated as
+
+$$
+  \bar x = \frac\{1\}\{N\} \sum_\{i=1\}^N x_i.
+$$
+
+The standard deviation of the mean $s$ can be calculated as
+
+$$
+  s = \sqrt\{\frac\{1\}\{N \cdot (N - 1)\} \sum_\{i=1\}^N (x_i - \bar x)^2 \}.
+$$
+
+For our purposes, taking ten measurements should be good enough, so we'll set
+$N = 10$. To get ourselves some data without having to venture out into the
+real world, we'll simulate measurements of sides of our
+cuboid as sampling a [normally distributed set of values][12]. We'll define
+true values for the dimensions of our cuboid as $a^* = 1.6 \\, \mathrm\{cm\}$,
+$b^* = 1.6 \\, \mathrm\{cm\}$, and $c^* = 1.1 \\, \mathrm\{cm\}$. These values
+are the means of our normal distributions. The standard deviation for our
+normal distributions will be $\sigma = 0.05 \\, \mathrm\{cm\}$, which is one
+half of the smallest measurement unit of the standard metric ruler. To sample
+our normal distributions with Python, we'll use the function
+[`numpy.random.normal`][13]. Open up your Python REPL, import Numpy,
+and try entering the following statement.
+
+```python
+>>> numpy.random.normal(1.6, 0.05, 10)
+array([1.64468312, 1.67546263, 1.64805655, 1.55413015, 1.56795639,
+       1.60147243, 1.59246804, 1.57452395, 1.51630531, 1.58456757])
+```
+
+This line of code produces an array of ten random values from a normally
+distributed set with mean $\mu = 1.6$ and standard deviation $\sigma = 0.05$.
+These values seem pretty good, but a standard metric ruler does only have a
+precision of one millimeter, so we'll have to round our values with
+the [`numpy.ndarray.round`][14] function.
+
+```python
+>>> numpy.random.normal(1.6, 0.05, 10).round(1)
+array([1.5, 1.6, 1.5, 1.7, 1.5, 1.6, 1.6, 1.6, 1.6, 1.6])
+```
+
+This looks much better. We could just work with these values directly, but this
+exercise should teach you how to load your data from disk into Python's
+memory. When carrying out a physical experiment, you'd usually write down your
+measurements into a notebook or use a laptop or a tablet and save the measured
+values into a file on your hard drive.
+
+```csv
+a,b,c
+1.6,1.6,1.2
+1.7,1.6,1.1
+1.6,1.6,1.1
+1.6,1.6,1.1
+1.7,1.6,1.1
+1.6,1.6,1.1
+1.6,1.6,1.1
+1.5,1.7,1.1
+1.6,1.6,1.0
+1.7,1.6,1.1
+```
+
 [1]: https://docs.python.org/3/
 [2]: https://www.qtiplot.com/
 [3]: https://numpy.org/case-studies/blackhole-image/
@@ -111,3 +203,9 @@ work properly if you use it.
 [6]: https://code.visualstudio.com/
 [7]: https://jupyter.org/
 [8]: https://github.com/python/devguide/pull/344
+[9]: https://physics.nist.gov/cuu/Uncertainty/typea.html
+[10]: https://en.wikipedia.org/wiki/Sample_mean_and_covariance
+[11]: https://en.wikipedia.org/wiki/Standard_deviation#Standard_deviation_of_the_mean
+[12]: https://en.wikipedia.org/wiki/Normal_distribution
+[13]: https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html
+[14]: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.round.html

@@ -1,7 +1,8 @@
 import { Global } from "@emotion/react";
 import React from "react";
 
-import { alienInvaderIcon } from "../asset/tweemoji";
+import { alienInvaderImage } from "../asset/image";
+import { prismStyles } from "../asset/style";
 
 const globalStyles = {
   "*": {
@@ -21,11 +22,10 @@ export default ({ metadata, children }) => {
   const blogPost = moduleFilePath.includes("post");
   const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
-  let katexStylesheet;
+  let katexStylesheet = null;
+  let prismStylesheet = null;
 
-  if (!blogPost) {
-    katexStylesheet = null;
-  } else {
+  if (blogPost) {
     katexStylesheet = (
       <link
         rel="stylesheet"
@@ -33,6 +33,10 @@ export default ({ metadata, children }) => {
         integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
         crossOrigin="anonymous"
       />
+    );
+
+    prismStylesheet = (
+      <link rel="stylesheet" href={prismStyles} />
     );
   }
 
@@ -44,7 +48,7 @@ export default ({ metadata, children }) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         />
-        <link rel="icon" type="image/svg+xml" href={alienInvaderIcon} />
+        <link rel="icon" type="image/svg+xml" href={alienInvaderImage} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -52,10 +56,11 @@ export default ({ metadata, children }) => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&family=Roboto+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@200;400;500;600&display=swap"
           rel="stylesheet"
         />
         {katexStylesheet}
+        {prismStylesheet}
         <title>{title}</title>
       </head>
       <body>
@@ -77,6 +82,9 @@ export default ({ metadata, children }) => {
           function gtag() { dataLayer.push(arguments); };
           gtag("js", new Date());
           gtag("config", "${googleAnalyticsId}");
+
+          window.Prism = window.Prism || {};
+          Prism.manual = true;
         `
       }} />
     </html>

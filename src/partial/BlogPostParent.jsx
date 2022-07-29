@@ -19,7 +19,9 @@ import * as HtmlTemplate from "./HtmlTemplate";
 
 const BlogPostContentBox = styled(ContentBox)({
   "& a": {
-    ...theme.typography.anchor1
+    ...theme.typography.anchor1,
+    border: "none",
+    color: "#0969DA"
   },
 
   "& code": {
@@ -32,6 +34,10 @@ const BlogPostContentBox = styled(ContentBox)({
 
   "& > p": {
     ...theme.typography.body1
+  },
+
+  "& .katex-display": {
+    margin: "32px 0"
   }
 });
 

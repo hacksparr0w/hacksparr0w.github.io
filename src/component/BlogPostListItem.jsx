@@ -28,6 +28,15 @@ const Root = styled.div({
   }
 });
 
+const BlogPostLink = styled(Link)({
+  color: "inherit",
+  fontWeight: 600,
+
+  "&:hover": {
+    textDecoration: "none"
+  }
+});
+
 export default ({
   post: {
     title,
@@ -45,9 +54,9 @@ export default ({
     </div>
     <div>
       <Typography variant="heading3">
-        <Link variant="anchor2" to={documentFileUrl}>
+        <BlogPostLink to={documentFileUrl}>
           {title}
-        </Link>
+        </BlogPostLink>
       </Typography>
       <Typography variant="body2">
         {subtitle}

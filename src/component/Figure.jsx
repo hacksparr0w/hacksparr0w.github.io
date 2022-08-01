@@ -3,8 +3,9 @@ import React from "react";
 
 import Typography from "./Typography";
 
-const Root = styled.div({
+const Root = styled.figure({
   marginBottom: 30,
+  textAlign: "center",
 
   "& > img": {
     width: "100%",
@@ -15,7 +16,7 @@ const Root = styled.div({
 export default ({ image, caption }) => (
   <Root>
     <img src={image} />
-    <Typography variant="caption">
+    <Typography variant="caption" color="text4">
       {caption}
     </Typography>
   </Root>

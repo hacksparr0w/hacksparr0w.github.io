@@ -5,10 +5,10 @@ import "prismjs/components/prism-python";
 import React, { useEffect, useRef } from "react";
 
 import {
+  BlogPostNavigation,
   ContentBox,
   Footer,
   Hero,
-  HomeNavigationItem,
   Main,
   Typography
 } from "../component";
@@ -19,9 +19,7 @@ import * as HtmlTemplate from "./HtmlTemplate";
 
 const BlogPostContentBox = styled(ContentBox)({
   "& a": {
-    ...theme.typography.anchor1,
-    border: "none",
-    color: "#0969DA"
+    ...theme.typography.anchor1
   },
 
   "& code": {
@@ -65,7 +63,7 @@ export default ({ metadata, children }) => {
     <>
       <Hero
         navigation={(
-          <HomeNavigationItem homeUrl={homeUrl} />
+          <BlogPostNavigation homeUrl={homeUrl} />
         )}
       >
         <ContentBox>
@@ -75,7 +73,7 @@ export default ({ metadata, children }) => {
           <Typography variant="heading1">
             {title}
           </Typography>
-          <Typography variant="subtitle1" color="secondary">
+          <Typography variant="subtitle1" color="text3">
             {subtitle}
           </Typography>
         </ContentBox>

@@ -6,8 +6,8 @@ import theme from "../theme";
 
 const Root = styled.header({
   height: "100vh",
-  backgroundColor: theme.color.background.accent,
-  color: theme.color.text.accent,
+  backgroundColor: theme.color.background2,
+  color: theme.color.text2,
 
   "@media (max-width: 490px), (max-height: 920px)": {
     height: "100%",

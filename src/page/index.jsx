@@ -20,6 +20,11 @@ import {
 
 import { HtmlTemplate } from "../partial";
 
+const IndexBlogHeading = styled(Typography)({
+  fontWeight: 400,
+  marginTop: 0
+})
+
 const IndexBlogPostList = styled(BlogPostList)({
   marginTop: "40px"
 });
@@ -54,16 +59,16 @@ export default ({ metadata: { pages } }) => {
           <GitsTextEffect component={Typography} variant="body2">
             Hi, I'm hacksparr0w, welcome to my place on the internet. I'm
             currently studying physics at{" "}
-            <TwitterProfileLink userName="muni_cz">
+            <TwitterProfileLink variant="anchor2" userName="muni_cz">
               @muni_cz
             </TwitterProfileLink>
             . Previously, I worked as a software engineer for various internet
             companies, including{" "}
-            <TwitterProfileLink userName="seznam_cz">
+            <TwitterProfileLink variant="anchor2" userName="seznam_cz">
               @seznam_cz
             </TwitterProfileLink>
             . I also helped building startups, most notably{" "}
-            <TwitterProfileLink userName="cargotic_tech">
+            <TwitterProfileLink variant="anchor2" userName="cargotic_tech">
               @cargotic_tech
             </TwitterProfileLink>
             . I used to be pretty active in Czech cybersecurity community.
@@ -76,23 +81,23 @@ export default ({ metadata: { pages } }) => {
           </GitsTextEffect>
           <GitsTextEffect component={Typography} variant="body2">
             If you want to get in touch, shoot me an{" "}
-            <EmailLink email="hacksparr0w@protonmail.com">
+            <EmailLink variant="anchor2" email="hacksparr0w@protonmail.com">
               email
             </EmailLink>
             {" "}or a{" "}
-            <TwitterProfileLink userName="hacksparr0w">
+            <TwitterProfileLink variant="anchor2" userName="hacksparr0w">
               Twitter DM
             </TwitterProfileLink>
             . Be sure to check out my{" "}
-            <GitHubProfileLink userName="hacksparr0w">
+            <GitHubProfileLink variant="anchor2" userName="hacksparr0w">
               GitHub
             </GitHubProfileLink>
             ,{" "}
-            <TwitchProfileLink userName="hacksparr0w">
+            <TwitchProfileLink variant="anchor2" userName="hacksparr0w">
               Twitch
             </TwitchProfileLink>
             {" "}and{" "}
-            <InstagramProfileLink userName="hacksparr0w">
+            <InstagramProfileLink variant="anchor2" userName="hacksparr0w">
               Instagram
             </InstagramProfileLink>
             .
@@ -101,8 +106,8 @@ export default ({ metadata: { pages } }) => {
       </Hero>
       <Main>
         <ContentBox>
-          <Typography variant="heading2">Blog</Typography>
-          <IndexBlogPostList posts={posts} />
+          <IndexBlogHeading variant="heading2">Blog</IndexBlogHeading>
+          <IndexBlogPostList variant="anchor2" posts={posts} />
         </ContentBox>
       </Main>
       <Footer />

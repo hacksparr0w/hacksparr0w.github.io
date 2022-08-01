@@ -17,25 +17,40 @@ import theme from "../theme";
 
 import * as HtmlTemplate from "./HtmlTemplate";
 
-const BlogPostContentBox = styled(ContentBox)({
+const BlogPostHeroContentBox = styled(ContentBox)({
+  "& > p:first-of-type": {
+    marginBottom: 8
+  }
+});
+
+const BlogPostMainContentBox = styled(ContentBox)({
   "& a": {
-    ...theme.typography.anchor1
+    ...theme.styles.anchor1
   },
 
   "& code": {
-    ...theme.typography.code
+    ...theme.styles.code
   },
 
   "& > h2": {
-    ...theme.typography.heading2
+    ...theme.styles.heading2
   },
 
   "& > p": {
-    ...theme.typography.body1
+    ...theme.styles.body1
+  },
+
+  "& > ul": {
+    ...theme.styles.list
+  },
+
+  "& > ul > li": {
+    ...theme.styles.body1,
+    ...theme.styles.listItem
   },
 
   "& .katex-display": {
-    margin: "32px 0"
+    margin: "22px 0"
   }
 });
 
@@ -66,22 +81,22 @@ export default ({ metadata, children }) => {
           <BlogPostNavigation homeUrl={homeUrl} />
         )}
       >
-        <ContentBox>
-        <Typography variant="subtitle2">
+        <BlogPostHeroContentBox>
+          <Typography variant="body2">
             {publishedOn}
           </Typography>
           <Typography variant="heading1">
             {title}
           </Typography>
-          <Typography variant="subtitle1" color="text3">
+          <Typography variant="subtitle" color="text3">
             {subtitle}
           </Typography>
-        </ContentBox>
+        </BlogPostHeroContentBox>
       </Hero>
       <Main>
-        <BlogPostContentBox ref={contentBoxRef}>
+        <BlogPostMainContentBox ref={contentBoxRef}>
           {children}
-        </BlogPostContentBox>
+        </BlogPostMainContentBox>
       </Main>
       <Footer />
     </>

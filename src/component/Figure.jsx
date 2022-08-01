@@ -4,12 +4,12 @@ import React from "react";
 import Typography from "./Typography";
 
 const Root = styled.figure({
-  marginBottom: 30,
+  marginBottom: 22,
   textAlign: "center",
 
   "& > img": {
     width: "100%",
-    marginBottom: 20
+    marginBottom: 16
   }
 })
 

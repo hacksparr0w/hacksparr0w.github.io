@@ -3,6 +3,7 @@ import React from "react";
 
 import theme from "../theme";
 import Link from "./Link";
+import Typography from "./Typography";
 
 const Root = styled.footer({
   textAlign: "center",
@@ -11,14 +12,13 @@ const Root = styled.footer({
   color: theme.color.text2,
 
   "& > p": {
-    ...theme.typography.body2,
     marginBottom: 0
   }
 });
 
 export default () => (
   <Root>
-    <p>
+    <Typography variant="body2">
       Created with &lt;3, powered by{" "}
       <Link variant="anchor2" to="https://github.com/hacksparr0w/mesmer">
         Mesmer
@@ -26,6 +26,6 @@ export default () => (
       .
       <br />
       hacksparr0w © 2022
-    </p>
+    </Typography>
   </Root>
 );

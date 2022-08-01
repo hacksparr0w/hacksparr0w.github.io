@@ -11,8 +11,7 @@ const COMPONENTS = {
   heading1: "h1",
   heading2: "h2",
   heading3: "h3",
-  subtitle1: "p",
-  subtitle2: "p"
+  subtitle: "p",
 };
 
 export default forwardRef((props, ref) => {
@@ -30,7 +29,7 @@ export default forwardRef((props, ref) => {
   let Component = component ?? COMPONENTS[variant];
 
   let css = {
-    ...theme.typography[variant]
+    ...theme.styles[variant]
   };
 
   if (color) {

@@ -4,7 +4,7 @@ import React from "react";
 import theme from "../theme";
 
 const Root = styled.a(({ variant = "anchor1" }) => ({
-  ...theme.typography[variant]
+  ...theme.styles[variant]
 }));
 
 export default ({ to, ...props }) => (

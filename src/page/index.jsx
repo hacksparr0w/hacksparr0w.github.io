@@ -20,22 +20,24 @@ import {
 
 import { HtmlTemplate } from "../partial";
 
-const IndexBlogHeading = styled(Typography)({
-  fontWeight: 400,
-  marginTop: 0
-})
-
-const IndexBlogPostList = styled(BlogPostList)({
-  marginTop: "40px"
-});
-
-const IndexContentBox = styled(ContentBox)({
+const IndexHeroContentBox = styled(ContentBox)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
 
   "& > img": {
     marginBottom: 60
+  }
+});
+
+const IndexMainContentBox = styled(ContentBox)({
+  "& > h2": {
+    fontWeight: 400,
+    marginTop: 0
+  },
+
+  "& > div": {
+    marginTop: "40px"
   }
 });
 
@@ -54,7 +56,7 @@ export default ({ metadata: { pages } }) => {
   return (
     <>
       <Hero>
-        <IndexContentBox>
+        <IndexHeroContentBox>
           <img width={260} src={avatarImage} />
           <GitsTextEffect component={Typography} variant="body2">
             Hi, I'm hacksparr0w, welcome to my place on the internet. I'm
@@ -102,13 +104,13 @@ export default ({ metadata: { pages } }) => {
             </InstagramProfileLink>
             .
           </GitsTextEffect>
-        </IndexContentBox>
+        </IndexHeroContentBox>
       </Hero>
       <Main>
-        <ContentBox>
-          <IndexBlogHeading variant="heading2">Blog</IndexBlogHeading>
-          <IndexBlogPostList variant="anchor2" posts={posts} />
-        </ContentBox>
+        <IndexMainContentBox>
+          <Typography variant="heading2">Blog</Typography>
+          <BlogPostList variant="anchor2" posts={posts} />
+        </IndexMainContentBox>
       </Main>
       <Footer />
     </>

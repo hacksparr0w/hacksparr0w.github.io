@@ -10,7 +10,7 @@ const color = {
   background2: "#000"
 };
 
-const typography = {
+const styles = {
   anchor1: {
     color: color.foreground1,
     textDecoration: "none",
@@ -29,15 +29,15 @@ const typography = {
   body1: {
     fontFamily: "'Poppins'",
     fontWeight: 400,
-    fontSize: 18,
+    fontSize: 16,
     lineHeight: 1.8,
-    marginBottom: 28
+    marginBottom: 22
   },
 
   body2: {
     fontFamily: "'Fira Code'",
     fontWeight: 400,
-    fontSize: 18,
+    fontSize: 16,
     lineHeight: 1.6,
     marginBottom: 22
   },
@@ -59,7 +59,7 @@ const typography = {
   heading2: {
     fontFamily: "'Poppins'",
     fontWeight: 600,
-    fontSize: 28,
+    fontSize: 26,
     marginTop: 42,
     marginBottom: 8
   },
@@ -67,27 +67,28 @@ const typography = {
   heading3: {
     fontFamily: "'Poppins'",
     fontWeight: 400,
-    fontSize: 24,
+    fontSize: 22,
 
     marginBottom: 10
   },
 
-  subtitle1: {
+  list: {
+    paddingLeft: 40,
+    marginBottom: 22
+  },
+
+  listItem: {
+    marginBottom: 6
+  },
+
+  subtitle: {
     fontFamily: "'Fira Code'",
-    fontSize: 28,
-    lineHeight: 1.5
+    fontSize: 20,
+    lineHeight: 1.6
   },
-
-  subtitle2: {
-    fontFamily: "'Poppins'",
-    fontWeight: 200,
-    fontSize: 24,
-
-    marginBottom: 10
-  }
 };
 
 export default {
   color,
-  typography
+  styles
 };

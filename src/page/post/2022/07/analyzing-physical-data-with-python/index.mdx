@@ -76,15 +76,15 @@ picture of a black hole was
 
 ## Python development environments
 
-Python code is just plain text, so you can use any text editor you like to
-write Python programs. Text editors come with varying degrees of support for
-programming languages. There are lightweight but still very powerful text
-editors like [Sublime Text][4] that offer syntax-highlighting,
-autocompletion, and some useful graphical features, but usually don't go
-beyond that. Then there are so-called integrated development environments
-(IDEs), which come with full support for your language of choice, providing
-features like a built-in debugger, dependency management, test runner, and so on.
-A very popular IDE for Python is [PyCharm][5]. My personal favorite is
+Python code is just plain text, so you can use any text editor of your liking
+to write Python programs. Text editors come with varying degrees of support
+for programming languages. There are lightweight but still very powerful text
+editors like [Sublime Text][4] that offer syntax-highlighting, autocompletion,
+and some useful graphical features, but usually don't go beyond that. Then
+there are so-called integrated development environments (IDEs), which come
+with full support for your language of choice, providing features like a
+built-in debugger, dependency management, test runner, and so on. A very
+popular IDE for Python is [PyCharm][5]. My personal favorite is
 [Visual Studio Code][6], which is a very customizable, language-agnostic IDE.
 
 Another noteworthy development environment for Python is [Jupyter][7]. Jupyter
@@ -103,40 +103,65 @@ work properly if you use it.
 
 ## Packages for scientific computing
 
-Following is a list of Python packages for scientific computation we'll be
-using throughout all the examples:
+The following is a list of Python packages for scientific computing that we'll
+be using in our examples.
 
- - NumPy and Pandas -
- - Uncertainties, Pint, Pint-pandas -
- - SciPy
- - SymPy
- - Plotly and Kaleido
+ - [NumPy][9] and [pandas][10]: NumPy is a Python library for performing math
+ operations on arbitrary N-dimensional arrays. Pandas further extends this
+ functionality with concepts such as data grids.
+
+ - [Uncertainties][11], [Pint][12], [Pint-Pandas][13]: The uncertainties
+ package makes Python play well with quantities that are subject to
+ measurement uncertainty. Pint and Pint-Pandas packages bring physical units
+ to the world of Python.
+
+ - [SciPy][14]: SciPy provides algorithms for optimization, differential
+ equations, statistics, and many other classes of problems commonly found in
+ physical applications.
+
+ - [SymPy][15]: SymPy is a Python package for symbolic mathematics. It lets
+ you perform algebraic operations on your math equations directly in your
+ Python programs. We will be using this package for working with $\LaTeX$
+ math expressions.
+
+ - [Plotly][16] and [Kaleido][17]: Plotly is a modern Python library for data
+ visualization. It's a low-code solution for making interactive,
+ publication-quality graphs. Kaleido will let us export Plotly graphs into
+ static images.
+
+Working with Python dependencies is a complex subject, and I would recommend
+you look into tools like [virtualenv][18] and [Poetry][19]. To keep things
+simple, you can just stick with Python's good old package installer,
+[pip][20], which usually gets installed alongside the Python binaries. To
+install all the listed packages at once, use the following shell command.
+
+```sh
+pip install numpy pandas uncertainties pint pint-pandas scipy sympy plotly kaleido
+```
 
 ## Loading data and performing basic math
 
 Now that we've handled all the necessary formalities, let's start with some
 actual physics. We'll start slow and simple to demonstrate some basics, and
-we'll gradually move on to more complex exercises.
+we'll gradually move on to more advanced exercises.
 
 Let's start with geometry. Suppose we have a cuboid of unknown dimensions $a$,
 $b$, and $c$. We would like to measure these dimensions and then calculate the
-volume $V$ of this cuboid. The volume $V$ can be calculated as
+volume, $V$, of this cuboid. The volume $V$ can be calculated as
 
 $$
   V = a \cdot b \cdot c.
 $$
 
 Simple enough, right? The next step is to take some measurements with a
-standard metric ruler.
-
-The proper way to take measurements and evaluate uncertainties with a standard
-metric ruler would be the [Type A evaluation of standard uncertainty][9].
-According to this standard, we need to take a sample of $N$ independent
-measurements. After that, we can estimate the true value of the measured
-variable as the [sample mean][10] and the standard uncertainty as the
-[standard deviation of the mean][11] (sometimes referred to as standard
-error). Given $N$ observations $x_i$, the sample mean $\bar x$ can be
-calculated as
+standard metric ruler. The proper way to take measurements and evaluate
+uncertainties with a standard metric ruler would be the
+[Type A evaluation of standard uncertainty][21]. According to this standard,
+we need to take a sample of $N$ independent measurements. After that, we can
+estimate the true value of the measured variable as the [sample mean][22] and
+the standard uncertainty as the [standard deviation of the mean][23]
+(sometimes referred to as standard error). Given $N$ observations $x_i$, the
+sample mean $\bar x$ can be calculated as
 
 $$
   \bar x = \frac\{1\}\{N\} \sum_\{i=1\}^N x_i.
@@ -150,15 +175,15 @@ $$
 
 For our purposes, taking ten measurements should be good enough, so we'll set
 $N = 10$. To get ourselves some data without having to venture out into the
-real world, we'll simulate measurements of sides of our
-cuboid as sampling a [normally distributed set of values][12]. We'll define
+real world, we'll simulate measurements of the sides of our
+cuboid as sampling a [normally distributed set of values][24]. We'll define
 true values for the dimensions of our cuboid as $a^* = 1.6 \\, \mathrm\{cm\}$,
 $b^* = 1.6 \\, \mathrm\{cm\}$, and $c^* = 1.1 \\, \mathrm\{cm\}$. These values
 are the means of our normal distributions. The standard deviation for our
-normal distributions will be $\sigma = 0.05 \\, \mathrm\{cm\}$, which is one
-half of the smallest measurement unit of the standard metric ruler. To
+normal distributions will be $\sigma = 0.05 \\, \mathrm\{cm\}$, which is
+one-half of the smallest measurement unit of the standard metric ruler. To
 generate the measurement values with Python, we'll use the function
-[`numpy.random.normal`][13]. Open up your Python REPL, import NumPy,
+[`numpy.random.normal`][25]. Open up your Python REPL, import NumPy,
 and try entering the following statement.
 
 ```python
@@ -168,10 +193,10 @@ array([1.64468312, 1.67546263, 1.64805655, 1.55413015, 1.56795639,
 ```
 
 This line of code produces an array of ten random values from a normally
-distributed set with mean $\mu = 1.6$ and standard deviation $\sigma = 0.05$.
-These values seem pretty good, but a standard metric ruler does only have a
-precision of one millimeter, so we'll have to round our values with
-the [`numpy.ndarray.round`][14] function.
+distributed set with a mean of $\mu = 1.6$ and a standard deviation of
+$\sigma = 0.05$. These values seem pretty good, but a standard metric ruler
+does only have a precision of one millimeter, so we'll have to round our
+values with the [`numpy.ndarray.round`][26] function.
 
 ```python
 >>> numpy.random.normal(1.6, 0.05, 10).round(1)
@@ -181,14 +206,14 @@ array([1.5, 1.6, 1.5, 1.7, 1.5, 1.6, 1.6, 1.6, 1.6, 1.6])
 This looks much more realistic. We could just work with these values directly,
 but this exercise is meant to teach you to load your data from disk into
 Python's memory. When carrying out a physical experiment, you'd usually write
-down your measurements into a notebook or use a laptop or a tablet and save
-the measured values into a file on your hard drive. We are going to use the
-[`pandas.read_csv`][15] function to load our data from disk. This function
-requires our data to be in the [CSV format][16]. CSV stands for
-comma-separated values, it's one of the simplest and most popular formats for
+down your measurements in a notebook or use a laptop or a tablet and save the
+measured values into a file on your hard drive. We are going to use the
+[`pandas.read_csv`][27] function to load our data from disk. This function
+requires our data to be in the [CSV format][28]. CSV stands for
+comma-separated values. It's one of the simplest and most popular formats for
 storing various kinds of data. It's a text-based format for tabular data,
 where rows are usually separated by a newline character and columns are
-separated with comma (spaces or tabs can also be used for separating
+separated by a comma (spaces or tabs can also be used for separating
 individual columns). The following is a CSV file that I'll be using in this
 exercise.
 
@@ -208,11 +233,11 @@ a,b,c
 
 You can either generate your own data using the previously mentioned
 `numpy.random.normal` function, or just copy-paste the example data and save
-it into a file named _data.csv_. Now, we'll load the data using the
-`pandas.read_csv`, extract the measured values into separate varaibles and use
-functions [`pandas.Series.mean`][17] and [`scipy.stats.sem`][18] to calcuate
-the previously defined sample mean and standard deviation of the mean for
-these variables. Here's the complete solution.
+it into a file named _data.csv_. Now, we'll load the data using
+`pandas.read_csv`, extract the measured values into separate variables, and
+use the functions [`pandas.Series.mean`][29] and [`scipy.stats.sem`][30] to
+compute the previously defined sample mean and standard deviation of the mean
+for these variables. Here's the complete solution.
 
 ```python
 import pandas as pd
@@ -229,8 +254,8 @@ print(c.mean(), stats.sem(c))
 ## Physical units, uncertainties and uncertainty propagation
 
 In the previous example, we've managed to load our measurement data from disk
-and calculated their means and uncertainties. This is a pretty good start, but
-there's also a lot of room for improvements. Firstly, if we run our example,
+and calculate its means and uncertainties. This is a pretty good start, but
+there's still a lot of room for improvement. Firstly, if we run our example,
 we get the following output.
 
 ```sh
@@ -239,17 +264,17 @@ we get the following output.
 1.1 0.014907119849998592
 ```
 
-This is not very aesthetically pleasing nor is it correct, as we should always
+This is not very aesthetically pleasing, nor is it correct, as we should always
 round our uncertainties to the first significant digit and our mean values
 should be rounded to the same number of decimal places as their uncertainties.
-Our script is also unaware of the physical units of these values and we might
+Our script is also unaware of the physical units of these values, and we might
 make an error if we start doing some more complicated calculations with these
 variables. Speaking of complicated calculations, we wanted to calculate the
 volume $V$ of our cuboid.
 
 Luckily for us, there's an elegant solution to all of the mentioned problems.
 Enter Pint. Pint is a Python library that makes working with physical units in
-Python a breeze. It also plays very well with the Uncertainty package. To
+Python a breeze. It also plays very well with the uncertainty package. To
 incorporate physical units and uncertainties into our script, we'll first have
 to change our CSV file a bit.
 
@@ -291,9 +316,9 @@ print(c)
 ```
 
 Here we've used the
-[`pint_pandas.pint_array.PintDataFrameAccessor.quantify`][19] function to
+[`pint_pandas.pint_array.PintDataFrameAccessor.quantify`][31] function to
 make our data frame aware of our physical units. We've then used the
-[`pint.facets.measurement.MeasurementQuantity.plus_minus`][20] function to
+[`pint.facets.measurement.MeasurementQuantity.plus_minus`][32] function to
 assign uncertainties to our measurements. If we run this code, the output will
 look something like this.
 
@@ -304,10 +329,10 @@ look something like this.
 ```
 
 Nice! But we're not done yet. Pint is not only capable of keeping track of our
-physical units and handling their conversions, it is also able to help us with
+physical units and handling their conversions; it is also able to help us with
 uncertainty propagation. Pint uses the Uncertainties package to calculate
 propagating uncertainties as predicted by the linear
-[uncertainty propagation theory][21]. Let's try to calculate the volume of our
+[uncertainty propagation theory][33]. Let's try to calculate the volume of our
 cuboid $V$ with its uncertainty.
 
 [1]: https://docs.python.org/3/
@@ -318,16 +343,28 @@ cuboid $V$ with its uncertainty.
 [6]: https://code.visualstudio.com/
 [7]: https://jupyter.org/
 [8]: https://github.com/python/devguide/pull/344
-[9]: https://physics.nist.gov/cuu/Uncertainty/typea.html
-[10]: https://en.wikipedia.org/wiki/Sample_mean_and_covariance
-[11]: https://en.wikipedia.org/wiki/Standard_deviation#Standard_deviation_of_the_mean
-[12]: https://en.wikipedia.org/wiki/Normal_distribution
-[13]: https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html
-[14]: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.round.html
-[15]: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-[16]: https://en.wikipedia.org/wiki/Comma-separated_values
-[17]: https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html
-[18]: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sem.html
-[19]: https://github.com/hgrecco/pint-pandas/blob/cf527e48557a1e028c6f2d4e628aa7a6cd1b30d4/pint_pandas/pint_array.py#L802
-[20]: https://github.com/hgrecco/pint/blob/b0316ce54a90a25845806d7d71fb4167e8ca31f8/pint/facets/measurement/objects.py#L24
-[21]: https://en.wikipedia.org/wiki/Propagation_of_uncertainty
+[9]: https://numpy.org/
+[10]: https://pandas.pydata.org/
+[11]: https://pythonhosted.org/uncertainties/
+[12]: https://pint.readthedocs.io/en/stable/
+[13]: https://github.com/hgrecco/pint-pandas
+[14]: https://scipy.org/
+[15]: https://www.sympy.org/en/index.html
+[16]: https://plotly.com/python/
+[17]: https://github.com/plotly/Kaleido
+[18]: https://virtualenv.pypa.io/en/latest/
+[19]: https://python-poetry.org/
+[20]: https://pypi.org/project/pip/
+[21]: https://physics.nist.gov/cuu/Uncertainty/typea.html
+[22]: https://en.wikipedia.org/wiki/Sample_mean_and_covariance
+[23]: https://en.wikipedia.org/wiki/Standard_deviation#Standard_deviation_of_the_mean
+[24]: https://en.wikipedia.org/wiki/Normal_distribution
+[25]: https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html
+[26]: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.round.html
+[27]: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
+[28]: https://en.wikipedia.org/wiki/Comma-separated_values
+[29]: https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html
+[30]: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sem.html
+[31]: https://github.com/hgrecco/pint-pandas/blob/cf527e48557a1e028c6f2d4e628aa7a6cd1b30d4/pint_pandas/pint_array.py#L802
+[32]: https://github.com/hgrecco/pint/blob/b0316ce54a90a25845806d7d71fb4167e8ca31f8/pint/facets/measurement/objects.py#L24
+[33]: https://en.wikipedia.org/wiki/Propagation_of_uncertainty

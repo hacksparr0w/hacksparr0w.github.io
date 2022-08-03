@@ -78,7 +78,7 @@ const styles = {
   },
 
   listItem: {
-    marginBottom: 6
+    marginBottom: 12
   },
 
   subtitle: {

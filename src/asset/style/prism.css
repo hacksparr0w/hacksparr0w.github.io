@@ -1,6 +1,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  background: hsl(230, 1%, 98%);
+  background: #f6f8fa;
   color: hsl(230, 8%, 24%);
   font-family: "Fira Code";
   direction: ltr;
@@ -38,7 +38,6 @@ pre[class*="language-"] {
   padding: 1em;
   margin: 0 0 22px 0;
   overflow: auto;
-  border: 1px solid rgba(0,0,0,.125);
   border-radius: 0.3em;
 }
 

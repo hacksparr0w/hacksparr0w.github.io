@@ -28,7 +28,7 @@ const BlogPostMainContentBox = styled(ContentBox)({
     ...theme.styles.anchor1
   },
 
-  "& code": {
+  "& > p code, & a > code": {
     ...theme.styles.code
   },
 

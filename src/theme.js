@@ -7,7 +7,8 @@ const color = {
   foreground1: "#0969da",
 
   background1: "#fff",
-  background2: "#000"
+  background2: "#000",
+  background3: "#f6f8fa"
 };
 
 const styles = {
@@ -24,6 +25,14 @@ const styles = {
     color: "inherit",
     borderBottom: "1px solid",
     textDecoration: "none"
+  },
+
+  code: {
+    padding: ".2em .4em",
+    margin: 0,
+    fontSize: "85%",
+    background: color.background3,
+    borderRadius: 6
   },
 
   body1: {

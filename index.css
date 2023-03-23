@@ -42,3 +42,18 @@ main > p a {
     text-decoration: none;
     border-bottom: 1.5px solid #fff;
 }
+
+@media (max-width: 600px), (max-height: 700px) {
+    body {
+        height: 100%;
+    }
+
+    main {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    main > img {
+        width: 320px;
+    }
+}
